@@ -37,49 +37,49 @@ public class ArrayListExercise {
 
         // 1) Declaration of ArrayList
         // TODO: Create a list of Strings named 'jujutsuSorcerers'
-        ArrayList<String> jujutsuSorcerers = new __________();
+        ArrayList<String> jujutsuSorcerers = new ArrayList<>();
 
         // 2) add(element)
         // TODO: Add these students to the class: "Itadori", "Fushiguro", "Kugisaki"
-        jujutsuSorcerers.add("____");
-        jujutsuSorcerers.add("____");
-        jujutsuSorcerers.add("____");
+        jujutsuSorcerers.add("Itadori");
+        jujutsuSorcerers.add("Fushiguro");
+        jujutsuSorcerers.add("Kugisaki");
 
         System.out.println("First Years Assembled: " + jujutsuSorcerers);
 
         // 3) add(index, element)
         // TODO: A transfer student arrives! Add "Okkotsu" at index 0 (He is special
         // grade after all)
-        jujutsuSorcerers.add(____, "____");
+        jujutsuSorcerers.add(0, "Okkotsu");
 
         System.out.println("After Yuta joins: " + jujutsuSorcerers);
 
         // 4) get(index)
         // TODO: Gojo wants to check who is at index 2. Get the name.
-        String student = jujutsuSorcerers.get(____);
+        String student = jujutsuSorcerers.get(2);
         System.out.println("Student at index 2 is: " + student);
 
         // 5) set(index, element)
         // TODO: Sukuna takes over Itadori! Replace "Itadori" (find his index first)
         // with "Ryomen Sukuna"
         // Let's assume Itadori is at index 1 now.
-        jujutsuSorcerers.set(____, "____");
+        jujutsuSorcerers.set(1, "Ryomen Sukuna");
 
         System.out.println("Oh no, Itadori switched!: " + jujutsuSorcerers);
 
         // 6) remove(index)
         // TODO: Someone got injured in Shibuya... Remove the student at index 3.
-        jujutsuSorcerers.remove(____);
+        jujutsuSorcerers.remove(3);
 
         System.out.println("After the Shibuya Incident: " + jujutsuSorcerers);
 
         // 7) size()
         // TODO: How many students are left standing?
-        System.out.println("Remaining students: " + jujutsuSorcerers.____());
+        System.out.println("Remaining students: " + jujutsuSorcerers.size());
 
         // 8) isEmpty()
         // TODO: Is the school empty?
-        if (jujutsuSorcerers.____()) {
+        if (jujutsuSorcerers.isEmpty()) {
             System.out.println("No sorcerers left to fight curses...");
         } else {
             System.out.println("The fight continues!");
@@ -87,7 +87,7 @@ public class ArrayListExercise {
 
         // 9) clear()
         // TODO: The Higher Ups ordered the execution of everyone. Clear the list.
-        jujutsuSorcerers.____();
+        jujutsuSorcerers.clear();
 
         System.out.println("Post-Culling Game Status: " + jujutsuSorcerers);
     }

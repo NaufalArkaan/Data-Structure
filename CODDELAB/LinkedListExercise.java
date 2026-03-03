@@ -30,8 +30,8 @@ public class LinkedListExercise {
         Island next; // Log Pose to next island
 
         public Island(String name) {
-            this.name = ____;
-            this.next = ____; // Initially points to nothing (sea)
+            this.name = name;
+            this.next = null; // Initially points to nothing (sea)
         }
     }
 
@@ -43,17 +43,17 @@ public class LinkedListExercise {
 
     // 1) Chart a new course (Add Island at the end)
     public void addIsland(String name) {
-        Island newIsland = new Island(____);
+        Island newIsland = new Island(name);
 
         // If we haven't started key
-        if (startIsland == ____) {
-            startIsland = ____;
-            lastIsland = ____;
+        if (startIsland == null) {
+            startIsland = newIsland;
+            lastIsland = newIsland;
         } else {
             // Point the current last island to the new one
-            lastIsland.next = ____;
+            lastIsland.next = newIsland;
             // Update the last island to be the new one
-            lastIsland = ____;
+            lastIsland = newIsland;
         }
     }
 
@@ -65,15 +65,15 @@ public class LinkedListExercise {
         Island prev = null;
 
         // Case 1: If the starting island is the target (Ohara?!)
-        if (current != null && current.name.equals(____)) {
-            startIsland = current.____; // Move start to the next one
+        if (current != null && current.name.equals(keyName)) {
+            startIsland = current.next; // Move start to the next one
             return;
         }
 
         // Case 2: Navigate to find the island
-        while (current != null && !current.name.equals(____)) {
+        while (current != null && !current.name.equals(keyName)) {
             prev = current;
-            current = current.____;
+            current = current.next;
         }
 
         // If the island doesn't exist on the map
@@ -81,28 +81,32 @@ public class LinkedListExercise {
             return;
 
         // Unlink the destroyed island
-        prev.next = current.____;
+        prev.next = current.next;
     }
 
     // 3) View Logbook (Print all islands)
     public void printLogbook() {
         Island current = startIsland;
         System.out.print("Grand Line Route: ");
-        while (current != ____) {
-            System.out.print(current.name + " -> ");
-            current = current.____;
+        while (current != null) {
+            if (current.next == null) {
+                System.out.print(current.name + " (End)");
+            } else {
+                System.out.print(current.name + " -> ");
+            }
+            current = current.next;
         }
-        System.out.println("Laugh Tale (End)");
+        System.out.println();
     }
 
     // 4) Check Log Pose (Search for an island)
     public boolean isIslandOnRoute(String keyName) {
         Island current = startIsland;
         while (current != null) {
-            if (current.name.equals(____)) {
+            if (current.name.equals(keyName)) {
                 return true; // Island found!
             }
-            current = current.____;
+            current = current.next;
         }
         return false; // Lost at sea
     }
@@ -113,7 +117,7 @@ public class LinkedListExercise {
         Island current = startIsland;
         while (current != null) {
             count++;
-            current = current.____;
+            current = current.next;
         }
         return count;
     }
@@ -123,24 +127,22 @@ public class LinkedListExercise {
         LinkedListExercise grandLine = new LinkedListExercise();
 
         // The Journey Begins
-        grandLine.addIsland("Romance Dawn");
+        grandLine.addIsland("Alabasta");
         grandLine.addIsland("Skypiea");
         grandLine.addIsland("Water 7");
-        grandLine.addIsland("Wano Kuni");
+        grandLine.addIsland("Enies Lobby");
 
         // Check the map
         grandLine.printLogbook();
-        // Expected: Romance Dawn -> Skypiea -> Water 7 -> Wano Kuni -> Laugh Tale
 
         // Nami checks if we visited Fishman Island
         System.out.println("Visited Fishman Island? " + grandLine.isIslandOnRoute("Fishman Island"));
 
-        // Buster Call on Ohara (or imagine an island gets destroyed)
-        System.out.println("Buster Call initiated on Skypiea!");
-        grandLine.busterCall("Skypiea");
+        // Buster Call on an island
+        System.out.println("Buster Call initiated on Enies Lobby!");
+        grandLine.busterCall("Enies Lobby");
 
         grandLine.printLogbook();
-        // Expected: Romance Dawn -> Water 7 -> Wano Kuni -> Laugh Tale
 
         // Count adventures
         System.out.println("Total Islands visited: " + grandLine.countIslands());
