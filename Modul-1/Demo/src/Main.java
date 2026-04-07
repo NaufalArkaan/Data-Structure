@@ -40,8 +40,10 @@ public class Main {
             }
 
             TrainTicket<Long> ticket = new TrainTicket<>(name, identity, bookingCode, selectedClass);
-            TrainTicket.getIdentityType(ticket);
+            //TrainTicket.getIdentityType(ticket);
             ticket.displayTicket();
+            TrainTicket<Integer> ticket2 = new TrainTicket<>("Dika", 123, "KA-102", TicketClass.ECONOMY);
+            ticket2.displayTicket();
 
         } catch (InputMismatchException e) {
             System.out.println("\nError: Identity number must be numeric!");
