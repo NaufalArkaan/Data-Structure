@@ -18,7 +18,15 @@ public class Task1_InfixPostfix {
             char c = infix.charAt(i);
 
             if (Character.isDigit(c)) {
-                postfix += c + " ";
+                String number = "";
+
+                while (i < infix.length() && Character.isDigit(infix.charAt(i))) {
+                    number += infix.charAt(i);
+                    i++;
+                }
+
+                postfix += number + " ";
+                i--;
             }
 
             else if (c == '(') {
