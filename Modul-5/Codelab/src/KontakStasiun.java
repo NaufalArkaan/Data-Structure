@@ -11,9 +11,7 @@ public class KontakStasiun {
 
         System.out.println("== Daftar Kontak Stasiun ==");
         for(Map.Entry<String, String> entry : kontakStasiun.entrySet()){
-            System.out.println(
-                    "Nama: " + entry.getKey() + " | Telepon: " + entry.getValue()
-            );
+            System.out.println("Nama: " + entry.getKey() + " | Telepon: " + entry.getValue());
         }
 
         String namaDicari = "WIRA - Customer Service";
