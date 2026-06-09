@@ -49,18 +49,6 @@ public class Main {
         System.out.println("==== RAILWAY GRAPH ====");
         graph.printGraph();
 
-        //Remove Route
-        System.out.println("\n\n===== REMOVE ROUTE SBY - JKT =====");
-        graph.removeRoute("SBY", "JKT");
-        System.out.println("\nGraph Setelah Remove Route:");
-        graph.printGraph();
-
-        //Remove Station
-        System.out.println("\n\n===== REMOVE STATION BDG =====");
-        graph.removeStation("BDG");
-        System.out.println("\nGraph Setelah Remove Station:");
-        graph.printGraph();
-
         // Get Connections
         System.out.println("\n\n===== CONNECTIONS =====");
         graph.getConnections("SBY");
